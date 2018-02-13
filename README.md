@@ -14,8 +14,8 @@ A simple type for building up ``String``s. Use as follows:
 using StringBuilders
 
 sb = StringBuilder()
-print(sb, "First string")
-print(sb, "Second string")
+append!(sb, "First string")
+append!(sb, "Second string")
 
 s = String(sb)
 ````

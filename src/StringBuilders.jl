@@ -18,7 +18,7 @@ function Base.String(sb::StringBuilder)
     return get(sb.as_string)
 end
 
-function Base.print(sb::StringBuilder, s::AbstractString)
+function Base.append!(sb::StringBuilder, s::AbstractString)
     if !isnull(sb.as_string)
         sb.buffer = IOBuffer()
         print(sb.buffer, get(sb.as_string))
