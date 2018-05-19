@@ -20,7 +20,6 @@ end
 
 function Base.append!(sb::StringBuilder, s::AbstractString)
     if !isnull(sb.as_string)
-        sb.buffer = IOBuffer()
         print(sb.buffer, get(sb.as_string))
         sb.as_string = Nullable{String}()
     end
