@@ -26,4 +26,10 @@ function Base.append!(sb::StringBuilder, s::AbstractString)
     print(sb.buffer, s)
 end
 
+function Base.append!(sb::StringBuilder, ss::AbstractString...)
+    for s in ss
+        append!(sb, s)
+    end
+end
+
 end # module
