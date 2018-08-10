@@ -1,5 +1,5 @@
 using StringBuilders
-using Base.Test
+using Test
 
 @testset "StringBuilders" begin
     sb = StringBuilder()
