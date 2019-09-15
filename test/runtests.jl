@@ -21,9 +21,6 @@ using Test
     append!(b, "1", "2", "3")
     @test String(b) == "123"
 
-end
-
-@testset "initialization" begin
     sb = StringBuilder()
     @test isempty(String(sb))
 end
