@@ -1,0 +1,12 @@
+name = "StringBuilders"
+uuid = "db12335b-fddc-5e1b-b0ee-42071d21ae50"
+version = "0.2.1-DEV"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+julia = "1"
+
+[targets]
+test = ["Test"]
