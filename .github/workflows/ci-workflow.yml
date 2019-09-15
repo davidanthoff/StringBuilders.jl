@@ -16,5 +16,5 @@ jobs:
         uses: julia-actions/setup-julia@v0.1.0
         with:
           version: ${{ matrix.julia-version }}
-      - name: Test exercises
+      - name: Run tests
         run: julia --color=yes -e 'using Pkg; Pkg.dev("."); Pkg.test("StringBuilders")'
