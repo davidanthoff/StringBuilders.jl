@@ -17,4 +17,4 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
       - name: Run tests
-        run: julia --color=yes -e 'using Pkg; Pkg.develop(PackageSpec(path=".")); Pkg.test("StringBuilders")'
+        run: julia --color=yes test.jl
