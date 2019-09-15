@@ -1,0 +1,9 @@
+name: 'Run Julia package tests'
+description: 'Run the tests in a Julia package'
+author: 'David Anthoff'
+runs:
+  using: 'node12'
+  main: 'lib/main.js'
+branding:
+  icon: 'download'
+  color: 'green'

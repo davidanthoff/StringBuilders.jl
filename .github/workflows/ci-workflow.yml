@@ -17,4 +17,4 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
       - name: Run tests
-        run: julia --color=yes --project test.jl
+        uses: ./.github/actions/run-tests

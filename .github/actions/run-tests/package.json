@@ -1,0 +1,42 @@
+{
+    "name": "runtests",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Run Julia tests",
+    "main": "lib/main.js",
+    "scripts": {
+      "build": "tsc",
+      "format": "prettier --single-quote --print-width 120 --tab-width 4 --no-semi --write **/*.ts",
+      "format-check": "prettier  --single-quote --print-width 120 --tab-width 4 --no-semi --check **/*.ts",
+      "test": "jest"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/julia-actions/setup-julia.git"
+    },
+    "keywords": [
+      "actions",
+      "julia",
+      "setup"
+    ],
+    "author": "David Anthoff",
+    "license": "MIT",
+    "dependencies": {
+      "@actions/core": "^1.0.0",
+      "@actions/io": "^1.0.0",
+      "@actions/exec": "^1.0.0",
+      "@actions/github": "^1.0.0",
+      "@actions/tool-cache": "^1.0.0",
+      "semver": "^6.1.1"
+    },
+    "devDependencies": {
+      "@types/jest": "^24.0.13",
+      "@types/node": "^12.0.4",
+      "@types/semver": "^6.0.0",
+      "jest": "^24.8.0",
+      "jest-circus": "^24.7.1",
+      "prettier": "^1.17.1",
+      "ts-jest": "^24.0.2",
+      "typescript": "^3.5.1"
+    }
+  }
