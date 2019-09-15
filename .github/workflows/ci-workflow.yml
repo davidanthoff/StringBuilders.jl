@@ -20,3 +20,5 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
       - uses: julia-actions/julia-runtest@master
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
