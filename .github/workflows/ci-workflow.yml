@@ -21,4 +21,4 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
       - name: Run tests
-        uses: ./.github/actions/run-tests
+        uses: davidanthoff/julia-runtest@master
