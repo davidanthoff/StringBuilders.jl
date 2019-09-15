@@ -1,3 +1,2 @@
-using Pkg
-Pkg.develop(PackageSpec(path="."))
+Pkg.build(verbose=true)
 Pkg.test("StringBuilders")
