@@ -16,11 +16,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1.0.0
-      - uses: davidanthoff/setup-julia@named-julia-versions
+      - uses: julia-actions/setup-julia@latest
         with:
           version: ${{ matrix.julia-version }}
       - uses: julia-actions/julia-runtest@master
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
-
