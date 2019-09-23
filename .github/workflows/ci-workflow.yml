@@ -21,5 +21,5 @@ jobs:
           version: ${{ matrix.julia-version }}
       - uses: julia-actions/julia-buildpkg@master
       - uses: julia-actions/julia-runtest@master
-      - uses: julia-actions/julia-uploadcoverage@master
+      - uses: julia-actions/julia-uploadcodecov@master
       - uses: julia-actions/julia-uploadcoveralls@master
