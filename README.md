@@ -18,7 +18,7 @@ append!(sb, "Second string")
 s = String(sb)
 ````
 
-The advantage of StringBuilders.jl over using `IOBuffer` is in the API. Some may find The higher-level StringBuilders.jl API easier to use. For comparision, the example above using `IOBuffer` would be
+The advantage of StringBuilders.jl over using `IOBuffer` is in the API. Some may find The higher-level StringBuilders.jl API easier to use. For comparison, the example above using `IOBuffer` would be
 
 ```julia
 io = IOBuffer()
