@@ -1,6 +1,9 @@
 name: Run butler
 
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron: '*/5 * * * *'
 
