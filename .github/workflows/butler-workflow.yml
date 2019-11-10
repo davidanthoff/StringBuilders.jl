@@ -1,0 +1,14 @@
+name: Run butler
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+
+jobs:
+  butler:
+    name: "Run PkgButler.jl"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1.0.0
+      - uses: julia-actions/setup-julia@latest
+      - uses: davidanthoff/julia-pkgbutler@master
