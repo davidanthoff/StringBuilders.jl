@@ -16,4 +16,4 @@ jobs:
       - uses: julia-actions/setup-julia@latest
       - uses: davidanthoff/julia-pkgbutler@releases/v1
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.JLPKGBUTLER_TOKEN }}
