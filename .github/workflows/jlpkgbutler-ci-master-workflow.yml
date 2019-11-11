@@ -1,6 +1,9 @@
-name: Run tests
+name: Run CI on master
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   test:
