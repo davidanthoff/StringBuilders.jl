@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1.0.0
-      - uses: julia-actions/setup-julia@latest
+      - uses: julia-actions/setup-julia@v1
       - uses: davidanthoff/julia-pkgbutler@releases/v1
         with:
           github-token: ${{ secrets.GH_TOKEN }}
