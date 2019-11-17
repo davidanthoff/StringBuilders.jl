@@ -4,7 +4,7 @@ makedocs(
 	modules = [StringBuilders],
 	sitename = "StringBuilders.jl",
 	pages = [
-        "Introduction" => "index.md"
+        "Home" => "index.md"
     ]
 )
 
