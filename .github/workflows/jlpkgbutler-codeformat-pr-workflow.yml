@@ -15,7 +15,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v1.8.0
         with:
-          token: ${{ secrets.JLPKGBUTLER_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Format files using DocumentFormat
           title: '[AUTO] Format files using DocumentFormat'
           body: '[DocumentFormat.jl](https://github.com/julia-vscode/DocumentFormat.jl) would suggest these formatting changes'
