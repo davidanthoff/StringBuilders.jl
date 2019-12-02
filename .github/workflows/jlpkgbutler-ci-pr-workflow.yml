@@ -36,4 +36,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1.0.0
       - uses: julia-actions/setup-julia@latest
-      - uses: julia-actions/julia-codeformat-lint@latest
+      - uses: julia-actions/julia-codeformat-lint@releases/v1
