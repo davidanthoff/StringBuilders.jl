@@ -12,7 +12,7 @@ mutable struct StringBuilder
 end
 
 function Base.String(sb::StringBuilder)
-    if sb.as_string===nothing
+    if sb.as_string === nothing
         sb.as_string = String(take!(sb.buffer))
     end
     return sb.as_string
