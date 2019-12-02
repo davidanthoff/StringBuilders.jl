@@ -18,5 +18,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Format files using DocumentFormat
           title: '[AUTO] Format files using DocumentFormat'
+          body: '[DocumentFormat.jl](https://github.com/julia-vscode/DocumentFormat.jl) would suggest these formatting changes'
           labels: no changelog
           branch-suffix: none
