@@ -27,3 +27,5 @@ write(io, "Second String")
 s = String(take!(io))
 close(io)
 ```
+
+TRIGGER
