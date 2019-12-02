@@ -28,4 +28,4 @@ s = String(take!(io))
 close(io)
 ```
 
-TRIGGER
+TRIGGER2
