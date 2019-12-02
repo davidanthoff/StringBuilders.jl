@@ -12,14 +12,14 @@ mutable struct StringBuilder
 end
 
 function Base.String(sb::StringBuilder)
-    if sb.as_string===nothing
+    if sb.as_string === nothing
         sb.as_string = String(take!(sb.buffer))
     end
     return sb.as_string
 end
 
 function Base.append!(sb::StringBuilder, s::AbstractString)
-    if sb.as_string!==nothing
+    if sb.as_string !== nothing
         print(sb.buffer, sb.as_string)
         sb.as_string = nothing
     end
