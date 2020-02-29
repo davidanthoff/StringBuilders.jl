@@ -3,5 +3,5 @@
     "julialang.language-julia"
   ],
 
-  "dockerFile": "Dockerfile"
+  "image": "julia"
 }
