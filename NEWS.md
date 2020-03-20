@@ -1,5 +1,5 @@
 # StringBuilders.jl v0.2.1 Release Notes
-* Test release
+* Test release for pkg butler
 
 # StringBuilders.jl v0.2.0 Release Notes
 * Drop julia 0.6 support, add julia 0.7 support
