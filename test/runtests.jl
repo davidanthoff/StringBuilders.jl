@@ -23,4 +23,12 @@ using Test
 
     sb = StringBuilder()
     @test isempty(String(sb))
+    
+    b = StringBuilder()
+    append!(b, '1', "2", "3")
+    @test String(b) == "123"
+    append!(b, "1", "2", '3')
+    @test String(b) == "123123"
+    append!(b, "1", '2', "3")
+    @test String(b) == "123123123"
 end
