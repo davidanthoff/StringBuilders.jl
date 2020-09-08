@@ -3,5 +3,5 @@
     "julialang.language-julia"
   ],
 
-  "image": "julia-vscode/julia-devcontainer"
+  "image": "ghcr.io/julia-vscode/julia-devcontainer:latest"
 }
