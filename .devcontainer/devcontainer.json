@@ -3,5 +3,5 @@
     "julialang.language-julia"
   ],
 
-  "image": "julia"
+  "image": "https://ghcr.io/julia-vscode/julia-devcontainer"
 }
