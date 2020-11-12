@@ -3,5 +3,5 @@
     "julialang.language-julia"
   ],
   "image": "ghcr.io/julia-vscode/julia-devcontainer",
-  "postCreateCommand": "julia --project=. /julia-devcontainer-scripts/postcreate.jl"
+  "postCreateCommand": "julia /julia-devcontainer-scripts/postcreate.jl"
 }
