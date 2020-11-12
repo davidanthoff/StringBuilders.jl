@@ -2,6 +2,6 @@
   "extensions": [
     "julialang.language-julia"
   ],
-
-  "image": "ghcr.io/julia-vscode/julia-devcontainer"
+  "image": "ghcr.io/julia-vscode/julia-devcontainer",
+  "postCreateCommand": "julia --project=. /julia-devcontainer-scripts/postcreate.jl"
 }
