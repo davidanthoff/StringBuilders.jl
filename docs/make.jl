@@ -1,8 +1,8 @@
 using Documenter, StringBuilders
 
 makedocs(modules=[StringBuilders],
-	sitename="StringBuilders.jl",
-	pages=[
+    sitename="StringBuilders.jl",
+    pages=[
         "Home" => "index.md"
     ])
 
