@@ -34,4 +34,12 @@ function Base.append!(sb::StringBuilder, ss::AbstractString...)
     end
 end
 
+function exe1(args)
+    println("exe1 called with $args")
+end
+
+function exe2(args)
+    println("exe2 called with $args")
+end
+
 end # module
