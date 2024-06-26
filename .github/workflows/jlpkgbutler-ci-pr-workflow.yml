@@ -5,6 +5,14 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: '1.10'
+      - uses: julia-actions/julia-lint@main
   test:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -15,14 +23,12 @@ jobs:
         exclude:
           - os: macOS-latest
             julia-arch: x86
-
     steps:
       - uses: actions/checkout@v3
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.julia-version }}
           arch: ${{ matrix.julia-arch }}
-      - uses: julia-actions/julia-lint@main
       - uses: julia-actions/julia-buildpkg@v1
         env:
           PYTHON: ""
