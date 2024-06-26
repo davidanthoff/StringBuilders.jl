@@ -11,7 +11,7 @@ mutable struct StringBuilder
     end
 end
 
-function Base.String(sb::StringBuilder)end
+function Base.String(sb::StringBuilder
 
     if sb.as_string === nothing
         sb.as_string = String(take!(sb.buffer))
