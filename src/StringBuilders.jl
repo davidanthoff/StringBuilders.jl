@@ -20,7 +20,7 @@ function Base.String(sb::StringBuilder)
     return sb.as_string
 end
 
-function Base.append!(sb::StringBuilder, s::AbstractString)
+function Base.append!(sb::StringBuilder, s::Union{Char, AbstractString})
     if sb.as_string !== nothing
         print(sb.buffer, sb.as_string)
         sb.as_string = nothing
@@ -28,7 +28,7 @@ function Base.append!(sb::StringBuilder, s::AbstractString)
     print(sb.buffer, s)
 end
 
-function Base.append!(sb::StringBuilder, ss::AbstractString...)
+function Base.append!(sb::StringBuilder, ss...)
     for s in ss
         append!(sb, s)
     end
