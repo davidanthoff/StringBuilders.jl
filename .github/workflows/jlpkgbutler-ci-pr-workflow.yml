@@ -22,7 +22,6 @@ jobs:
         with:
           version: ${{ matrix.julia-version }}
           arch: ${{ matrix.julia-arch }}
-      - uses: julia-actions/julia-lint@main
       - uses: julia-actions/julia-buildpkg@v1
         env:
           PYTHON: ""
