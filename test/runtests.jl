@@ -1,7 +1,9 @@
-using StringBuilders
-using Test
+using TestItemRunner
 
-@testset "StringBuilders" begin
+@run_package_tests
+
+
+@testitem "StringBuilders" begin
     sb = StringBuilder()
     append!(sb, "First string.")
     append!(sb, "Second string.")
