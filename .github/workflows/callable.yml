@@ -13,6 +13,14 @@ jobs:
     - run: Install-Module -Name PSToml -Scope AllUsers
       shell: pwsh
     - uses: actions/checkout@v4
+    - name: Compute channels from Project.toml bounds
+      run: |
+        $project = Get-Content Project.toml | ConvertFrom-Toml
+
+        $minJulia = $project.compat.julia
+
+        echo "Min Julia is $minJulia"
+      shell: pwsh
     - uses: julia-actions/install-juliaup@v2
       with:
         channel: "release"
@@ -20,6 +28,17 @@ jobs:
       run: |
         $channels = "1.6", "1.10"
         $channels | % {juliaup add $_}        
+      shell: pwsh
+    - name: Instantiate
+      run: |
+        $channels = "1.6", "1.10"
+
+
+        $channels | % {
+          $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
+          
+          julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
+        }
       shell: pwsh
     - name: Run tests
       run: |
