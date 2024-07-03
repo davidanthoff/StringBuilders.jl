@@ -1,0 +1,33 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+
+jobs:
+  triage:
+    runs-on: ${{ inputs.os }}
+    steps:
+    - run: Install-Module -Name PSToml -Scope AllUsers
+      shell: pwsh
+    - uses: actions/checkout@v4
+    - uses: julia-actions/install-juliaup
+      with:
+        channel: "release"
+    - name: Install Julia versions
+      run: |
+        $channels = "1.6", "1.10"
+        $channels | % {juliaup add $_}        
+      shell: pwsh
+    - name: Run tests
+      run: |
+        $channels = "1.6", "1.10"
+
+        $channels | % -Parallel {
+          $Env:JULIA_DEPOT_PATH = "foo/channel-$_"
+          julia +$_ -e "using Pkg; Pkg.activate(\".\"); Pkg.test()"
+        }
+      shell: pwsh
