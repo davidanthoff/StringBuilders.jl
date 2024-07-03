@@ -25,10 +25,12 @@ jobs:
         $channels = ,"1.6"
 
         $channels | % -Parallel {
-          $Env:JULIA_DEPOT_PATH = "/opt/hostedtoolcache/foo/channel-$_"
+          $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
           
           julia +$_ --project=. -e 'println("THIS WORKS ", VERSION)'
-          julia +$_ --project=. -e 'println(Base.DEPOT_PATH)'
+          julia +$_ --project=. -e 'println(Base.DEPOT_PATH)'          
+          julia +$_ --project=. -e 'using Pkg; Pkg.Registry.add("General")'
+          julia +$_ --project=. -e 'println("we cloned")'
           julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
           julia +$_ --project=. -e 'println("we instan")'
           julia +$_ --project=. -e 'using Pkg; Pkg.test()'
