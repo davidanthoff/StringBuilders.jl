@@ -9,4 +9,4 @@ on:
 
 jobs:
   test:
-    uses: .\.github\workflows\callable.yml
+    uses: ./.github/workflows/callable.yml
