@@ -10,12 +10,16 @@ jobs:
           os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+    - name: Trust PSGallery
+      run: |
+        Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+      shell: pwsh
+    - uses: potatoqualitee/psmodulecache@v6.0
+      with:
+        modules-to-cache: PSToml
     - uses: actions/checkout@v4
     - name: Compute channels from Project.toml bounds
       run: |
-        Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-        Install-Module -Name PSToml -Scope CurrentUser
-
         $project = Get-Content Project.toml | ConvertFrom-Toml
 
         $minJulia = $project.compat.julia
@@ -30,10 +34,6 @@ jobs:
         $channels = "1.6", "1.10"
         $channels | % {juliaup add $_}        
       shell: pwsh
-    - uses: samypr100/setup-dev-drive@v3
-      with:
-        mount-path: "${{ runner.tool_cache }}/juliadepots"
-        drive-size: 10GB
     - name: Clone registries
       run: |
         $channels = "1.6", "1.10"
