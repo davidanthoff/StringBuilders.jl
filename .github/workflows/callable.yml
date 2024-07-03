@@ -30,8 +30,11 @@ jobs:
           julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
         }
 
+        julia +$_ --project=. -e 'println("We are in ", pwd())'
+
         $channels | % -parallel {
           $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
+          julia +$_ --project=. -e 'println("We are in ", pwd())'
           
           julia +$_ --project=. -e 'using Pkg; Pkg.test()'
         }
