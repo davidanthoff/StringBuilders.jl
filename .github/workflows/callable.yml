@@ -13,8 +13,8 @@ jobs:
     - uses: actions/checkout@v4
     - name: Compute channels from Project.toml bounds
       run: |
-        Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-        Install-Module -Name PSToml -Scope AllUsers
+        Set-PSRepository -Name PSGallery -InstallationPolicy Trusted -Scope CurrentUser
+        Install-Module -Name PSToml -Scope CurrentUser
 
         $project = Get-Content Project.toml | ConvertFrom-Toml
 
