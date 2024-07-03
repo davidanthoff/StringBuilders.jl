@@ -1,8 +1,12 @@
 name: Run the Julia Package Butler
 
 on:
+  push:
+    branches:
+      - main
+      - master
   schedule:
-    - cron: '*/60 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
