@@ -24,7 +24,7 @@ jobs:
 
         $channels = ,"1.6"
 
-        $channels | % -Parallel {
+        $channels | % {
           $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
           
           julia +$_ --project=. -e 'println("THIS WORKS ", VERSION)'
