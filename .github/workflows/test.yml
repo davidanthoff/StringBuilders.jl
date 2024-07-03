@@ -9,9 +9,4 @@ on:
 
 jobs:
   test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    uses: ./.github/workflows/callable.yml
-    with:
-        os: ${{ matrix.os }}
+    uses: .\.github\workflows\callable.yml

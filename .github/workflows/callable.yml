@@ -2,14 +2,10 @@ name: Reusable workflow example
 
 on:
   workflow_call:
-    inputs:
-      os:
-        required: true
-        type: string
 
 jobs:
   triage:
-    runs-on: ${{ inputs.os }}
+    runs-on: ubuntu-latest
     steps:
     - run: Install-Module -Name PSToml -Scope AllUsers
       shell: pwsh
