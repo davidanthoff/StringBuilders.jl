@@ -4,8 +4,11 @@ on:
   workflow_call:
 
 jobs:
-  triage:
-    runs-on: ubuntu-latest
+  test:
+    strategy:
+        matrix:
+          os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
     - run: Install-Module -Name PSToml -Scope AllUsers
       shell: pwsh
@@ -25,16 +28,6 @@ jobs:
 
         $channels | % {
           $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
-          
-          julia +$_ --project=. -e 'using Pkg; Pkg.Registry.add("General")'
-          julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
-        }
-
-        julia +$_ --project=. -e 'println("We are in ", pwd())'
-
-        $channels | % -parallel {
-          $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
-          julia +$_ --project=. -e 'println("We are in ", pwd())'
           
           julia +$_ --project=. -e 'using Pkg; Pkg.test()'
         }
