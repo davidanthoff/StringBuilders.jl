@@ -12,6 +12,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-    uses: ./callable.yml
+    uses: ./.github/workflows/callable.yml
     with:
         os: ${{ matrix.os }}
