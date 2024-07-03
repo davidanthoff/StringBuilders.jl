@@ -10,11 +10,11 @@ jobs:
           os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - run: Install-Module -Name PSToml -Scope AllUsers
-      shell: pwsh
     - uses: actions/checkout@v4
     - name: Compute channels from Project.toml bounds
       run: |
+        Install-Module -Name PSToml -Scope AllUsers
+
         $project = Get-Content Project.toml | ConvertFrom-Toml
 
         $minJulia = $project.compat.julia
