@@ -27,9 +27,10 @@ jobs:
         $channels | % -Parallel {
           $Env:JULIA_DEPOT_PATH = "~/foo/channel-$_"
           
-          julia +$_ --project=. -e 'println("THIS WORKS")'
-          julia +$_ --project=. -e 'println(versioninfo())'
-          julia +$_ --project=. -e 'println(Base.JULIA_DEPOT)'
+          julia +$_ --project=. -e 'println("THIS WORKS", VERSION)'
+          julia +$_ --project=. -e 'println(Base.DEPOT_PATH)'
+          julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
+          julia +$_ --project=. -e 'println("we instan")'
           julia +$_ --project=. -e 'using Pkg; Pkg.test()'
         }
       shell: pwsh
