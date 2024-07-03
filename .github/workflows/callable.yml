@@ -22,7 +22,7 @@ jobs:
       run: |
         $channels = "1.6", "1.10"
 
-        $channels = ,"1.10"
+        $channels = ,"1.6"
 
         md ~/foo
 
