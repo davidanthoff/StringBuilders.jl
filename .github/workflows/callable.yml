@@ -30,13 +30,25 @@ jobs:
         $channels = "1.6", "1.10"
         $channels | % {juliaup add $_}        
       shell: pwsh
+    - uses: samypr100/setup-dev-drive@v3
+      with:
+        mount-path: "~/juliadepots"
+    - name: Clone registries
+      run: |
+        $channels = "1.6", "1.10"
+
+        $channels | % {
+          $Env:JULIA_DEPOT_PATH = "~/juliadepots/julia-$_"
+          
+          julia +$_ --project=. -e 'using Pkg; Pkg.Registry.add("General")'
+        }
+      shell: pwsh
     - name: Instantiate
       run: |
         $channels = "1.6", "1.10"
 
-
         $channels | % {
-          $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
+          $Env:JULIA_DEPOT_PATH = "~/juliadepots/julia-$_"
           
           julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
         }
@@ -47,7 +59,7 @@ jobs:
 
 
         $channels | % {
-          $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
+          $Env:JULIA_DEPOT_PATH = "~/juliadepots/julia-$_"
           
           julia +$_ --project=. -e 'using Pkg; Pkg.test()'
         }
