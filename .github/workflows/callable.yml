@@ -22,17 +22,17 @@ jobs:
       run: |
         $channels = "1.6", "1.10"
 
-        $channels = ,"1.6"
 
         $channels | % {
           $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
           
-          julia +$_ --project=. -e 'println("THIS WORKS ", VERSION)'
-          julia +$_ --project=. -e 'println(Base.DEPOT_PATH)'          
           julia +$_ --project=. -e 'using Pkg; Pkg.Registry.add("General")'
-          julia +$_ --project=. -e 'println("we cloned")'
           julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
-          julia +$_ --project=. -e 'println("we instan")'
+        }
+
+        $channels | % {
+          $Env:JULIA_DEPOT_PATH = "~/.julia-$_"
+          
           julia +$_ --project=. -e 'using Pkg; Pkg.test()'
         }
       shell: pwsh
