@@ -2,7 +2,7 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "e04f7a6a09f3882e10b2b138eed01ab0a6ecb920"
+project_hash = "83a2a8c9adcbe759b489e15725ae7e0b7cd66edb"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -65,9 +65,11 @@ version = "0.4.8"
 
 [[deps.JuliaWorkspaces]]
 deps = ["AutoHashEquals", "JuliaSyntax", "Pkg", "Salsa", "UUIDs"]
-git-tree-sha1 = "5b56f4871772124f5199976a32b0042e61a3bfac"
+git-tree-sha1 = "6b6955b9a8ccfd91dbf1962f34035abc7a9bb10f"
+repo-rev = "main"
+repo-url = "https://github.com/julia-vscode/JuliaWorkspaces.jl"
 uuid = "e554591c-7f10-434f-9f27-2097f62a04fd"
-version = "2.0.0"
+version = "2.0.1-DEV"
 
 [[deps.LibCURL]]
 deps = ["LibCURL_jll", "MozillaCACerts_jll"]
