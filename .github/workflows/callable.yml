@@ -54,9 +54,13 @@ jobs:
           julia +$_ --project=. -e 'using Pkg; Pkg.instantiate()'
         }
       shell: pwsh
+    - name: Install test runner
+      run: julia --project=./testrunner -e 'using Pkg; Pkg.instantiate()'
     - name: Run tests
       run: |
         $channels = "1.6", "1.10"
+
+        julia --project=./testrunner ./testrunner/main.jl ${{ runner.tool_cache }} @channels
 
 
         $channels | % {

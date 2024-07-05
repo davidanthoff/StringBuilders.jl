@@ -31,6 +31,9 @@ end
 function Base.append!(sb::StringBuilder, ss::AbstractString...)
     for s in ss
         append!(sb, s)
+        if VERSION<v"1.9"
+            append!(sb, s)
+        end
     end
 end
 
