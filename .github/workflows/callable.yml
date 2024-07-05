@@ -61,11 +61,4 @@ jobs:
         $channels = "1.6", "1.10"
 
         julia --project=./testrunner ./testrunner/main.jl ${{ runner.tool_cache }} @channels
-
-
-        $channels | % {
-          $Env:JULIA_DEPOT_PATH = "${{ runner.tool_cache }}/juliadepots/julia-$_"
-          
-          julia +$_ --project=. -e 'using Pkg; Pkg.test()'
-        }
       shell: pwsh
