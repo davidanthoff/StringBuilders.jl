@@ -12,6 +12,8 @@ results = run_tests(
 
 for result in results
     if result.result.status!="yea"
-        println("::error file=$(TestItemRunner2.uri2filepath(result.result.message.location.uri)),line=$(result.result.message.location.range.start.line),endLine=$(result.result.message.location.range.stop.line),title=Error::$(result.result.message.message)")
+        for message in result.result.message
+            println("::error file=$(TestItemRunner2.uri2filepath(message.location.uri)),line=$(message.location.range.start.line),endLine=$(message.location.range.stop.line),title=Error::$(message.message)")
+        end
     end
 end
