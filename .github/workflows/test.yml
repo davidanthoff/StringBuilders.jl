@@ -3,8 +3,10 @@ name: NEW MAIN CI
 on:
   push:
     branches:
-      # - main
-      # - master
+      - main
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 jobs:
