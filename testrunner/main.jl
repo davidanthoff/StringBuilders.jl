@@ -14,7 +14,7 @@ for result in results
     if result.result.status!="yea"
         if result.result.message!==nothing
             for message in result.result.message
-                println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(message.location.uri))),line=$(message.location.range.start.line),endLine=$(message.location.range.stop.line),title=Error::$(message.message)")
+                println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(message.location.uri))),line=$(message.location.range.start.line+1),endLine=$(message.location.range.stop.line+1),title=Error::$(message.message)")
             end
         end
     end
