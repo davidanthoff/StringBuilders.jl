@@ -4,6 +4,10 @@ on:
   workflow_call:
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: julia-actions/julia-lint@main
   test:
     strategy:
         matrix:
