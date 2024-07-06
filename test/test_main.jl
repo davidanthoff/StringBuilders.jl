@@ -1,5 +1,16 @@
+@testmodule Foo begin
+    X = "SOME VAlue"
+    Y = "LIJ"
+end
 
-@testitem "StringBuilders" begin
+@testsnippet Bar begin
+    x = "Hello world"
+end
+
+@testitem "StringBuilders" setup=[Foo,Bar] begin
+
+    @test x == "Hello world"
+
     sb = StringBuilder()
     append!(sb, "First string.")
     append!(sb, "Second string.")
@@ -8,7 +19,7 @@
     s = String(sb)
     @test s == "First string.Second string.Third string."
     s2 = String(sb)
-    @test s2 == "First string.Second string.Third string."
+    @test s2 == "First string.Second string.Third string.d"
 
     append!(sb, "Fourth string.")
     s3 = String(sb)
@@ -21,4 +32,11 @@
 
     sb = StringBuilder()
     @test isempty(String(sb))
+
+    @test Foo.X == "SOME VAlue"
 end
+
+@testitem "TO" setup=[Foo,Bar] begin
+    error("HELLO")
+end
+
