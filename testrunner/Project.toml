@@ -1,3 +1,4 @@
 [deps]
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 JuliaWorkspaces = "e554591c-7f10-434f-9f27-2097f62a04fd"
 TestItemRunner2 = "e1dee961-0fd3-483e-9ab1-c4c3c701c341"

@@ -1,7 +1,4 @@
-println("Now we are in the test item runner script")
-println("We got args $ARGS")
-
-using TestItemRunner2
+using TestItemRunner2, JSON
 
 function esc_data(s)
     s = replace(s, '%' => "%25")
@@ -26,6 +23,29 @@ for result in results
             println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(message.location.uri))),line=$(message.location.range.start.line+1),endLine=$(message.location.range.stop.line+1),title=Test failure::$(esc_data(message.message))")
         end
     end
+end
+
+ctrf = Dict(
+    "results" => Dict(
+        "tool" => Dict("name"=>"Testitems"),
+        "summary" => Dict(
+            "tests" => 10,
+            "passed" => 3,
+            "failed" => 2,
+            "pending" => 0,
+            "skipped" => 0,
+            "other" => 0,
+            "start" => 0
+            "stop" => 1            
+        ),
+        "tests" => [
+
+        ]
+    )
+)
+
+open("testresults.json", "w") do file
+    JSON.print(file, ctrf, 0)
 end
 
 if at_least_one_fail
