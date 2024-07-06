@@ -69,3 +69,4 @@ jobs:
       shell: pwsh
     - name: Run CTRF annotations
       run: npx github-actions-ctrf testresults.json
+      if: always()
