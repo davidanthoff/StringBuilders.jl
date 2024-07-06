@@ -44,8 +44,8 @@ ctrf = Dict(
     )
 )
 
-open("testresults.json", "w") do file
-    JSON.print(file, ctrf, 0)
+open(ENV["GITHUB_STEP_SUMMARY"], "w") do file
+    println(f, "# Test summary from David")
 end
 
 if at_least_one_fail
