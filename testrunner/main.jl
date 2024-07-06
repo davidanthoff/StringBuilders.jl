@@ -44,7 +44,7 @@ ctrf = Dict(
     )
 )
 
-open(ENV["GITHUB_STEP_SUMMARY"], "w") do file
+open(ENV["GITHUB_STEP_SUMMARY"], "w") do f
     println(f, "# Test summary from David")
 end
 
