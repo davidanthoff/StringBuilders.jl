@@ -35,7 +35,7 @@ ctrf = Dict(
             "pending" => 0,
             "skipped" => 0,
             "other" => 0,
-            "start" => 0
+            "start" => 0,
             "stop" => 1            
         ),
         "tests" => [
