@@ -17,12 +17,17 @@ results = run_tests(
     print_failed_results=false
 )
 
+at_least_one_fail = false
+
 for result in results
-    if result.result.status!="yea"
-        if result.result.message!==missing
-            for message in result.result.message
-                println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(message.location.uri))),line=$(message.location.range.start.line+1),endLine=$(message.location.range.stop.line+1),title=Test failure::$(esc_data(message.message))")
-            end
+    if result.result.status!="passed"
+        at_least_one_fail = true
+        for message in result.result.message
+            println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(message.location.uri))),line=$(message.location.range.start.line+1),endLine=$(message.location.range.stop.line+1),title=Test failure::$(esc_data(message.message))")
         end
     end
+end
+
+if at_least_one_fail
+    exit(1)
 end
