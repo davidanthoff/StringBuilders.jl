@@ -7,7 +7,7 @@ end
     x = "Hello world"
 end
 
-@testitem "StringBuilders" setup=[Foo,Bar] begin
+@testitem "StringBuilders" df setup=[Foo,Bar] begin
 
     @test x == "Hello world"
 
@@ -39,11 +39,17 @@ end
 @testitem "Something" begin
     println("Hello world")
 
-    error("WOA")
+    # error("WOA")
 end
 
 
 @testitem "Somdfasdfething" begin
     
     @test "asdf" == "asdf"
+end
+
+@testitem "Huhu" begin
+    @test "Hello" == "NO"
+
+    @test "AGAIN" == "WHAT"
 end
