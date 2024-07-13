@@ -9,7 +9,7 @@ end
 
 results = run_tests(
     pwd(),
-    environments=[TestEnvironment("Julia $i", Dict("JULIAUP_CHANNEL"=>i,"JULIA_DEPOT_PATH"=>joinpath(ARGS[1], "juliadepots/julia-$i"))) for i in ARGS[2:end]],
+    environments=[TestEnvironment("Julia $i", true, Dict("JULIAUP_CHANNEL"=>i,"JULIA_DEPOT_PATH"=>joinpath(ARGS[1], "juliadepots/julia-$i"))) for i in ARGS[2:end]],
     return_results=true,
     print_failed_results=false,
     progress_ui=:log    

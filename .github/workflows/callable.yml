@@ -45,7 +45,7 @@ jobs:
         $channels | % {
           $Env:JULIA_DEPOT_PATH = "${{ runner.tool_cache }}/juliadepots/julia-$_"
           
-          julia +$_ --project=. --startup-file=no --history-file=no --depwarn=no -e 'using Pkg; Pkg.instantiate()'
+          julia +$_ --project=. --code-coverage=user --startup-file=no --history-file=no --depwarn=no -e 'using Pkg; Pkg.instantiate()'
         }
       shell: pwsh
     - name: Install test runner
