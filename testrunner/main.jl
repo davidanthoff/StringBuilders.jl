@@ -9,7 +9,7 @@ end
 
 results = run_tests(
     pwd(),
-    environments=[TestEnvironment("Juliaup channel $i", Dict("JULIAUP_CHANNEL"=>i,"JULIA_DEPOT_PATH"=>joinpath(ARGS[1], "juliadepots/julia-$i"))) for i in ARGS[2:end]],
+    environments=[TestEnvironment("Julia $i", Dict("JULIAUP_CHANNEL"=>i,"JULIA_DEPOT_PATH"=>joinpath(ARGS[1], "juliadepots/julia-$i"))) for i in ARGS[2:end]],
     return_results=true,
     print_failed_results=false,
     progress_ui=:log    
@@ -21,7 +21,7 @@ for result in results
     if result.result.status!="passed"
         global at_least_one_fail = true
         for message in result.result.message
-            println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(message.location.uri))),line=$(message.location.range.start.line),endLine=$(message.location.range.stop.line),title=Test failure::$(esc_data(message.message))")
+            println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(message.location.uri))),line=$(message.location.range.start.line),endLine=$(message.location.range.stop.line),title=Test failure on $(result.testenvironment.name)::$(esc_data(message.message))")
         end
     end
 end
