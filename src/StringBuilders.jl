@@ -34,6 +34,10 @@ function Base.append!(sb::StringBuilder, ss::AbstractString...)
         if VERSION<v"1.9"
             append!(sb, s)
         end
+
+        if s=="Hello world REALLY"
+            println("Just trying coverage")
+        end
     end
 end
 
