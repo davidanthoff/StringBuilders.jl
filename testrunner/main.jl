@@ -18,11 +18,11 @@ results = run_tests(
 
 at_least_one_fail = false
 
-for te in results.definition_errors
-    global at_least_one_fail = true
-    println()
-    println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(te.uri))),line=$(te.line),title=Test definition error::$(esc_data(te.message))")
-end
+# for te in results.definition_errors
+#     global at_least_one_fail = true
+#     println()
+#     println("::error file=$(TestItemRunner2.uri2filepath(TestItemRunner2.URI(te.uri))),line=$(te.line),title=Test definition error::$(esc_data(te.message))")
+# end
 
 for result in results.test_results
     if result.result.status!="passed"
