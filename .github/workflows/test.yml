@@ -11,6 +11,6 @@ on:
 
 jobs:
   julia-ci:
-    uses: ./.github/workflows/callable.yml
+    uses: julia-vscode/testitem-workflow/.github/workflows/testitemci.yml
     secrets:
       codecov_token: ${{ secrets.CODECOV_TOKEN }}
