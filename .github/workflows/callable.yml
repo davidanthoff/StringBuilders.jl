@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: julia-actions/julia-lint@main
-  test:
+  run-tests:
     strategy:
         fail-fast: false
         matrix:
@@ -68,7 +68,7 @@ jobs:
         flags: unittests
         token: ${{ secrets.codecov_token }}
 
-  doc-deploy:
+  deploy-docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
