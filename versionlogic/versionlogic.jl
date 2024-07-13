@@ -36,6 +36,6 @@ filter!(i -> i[1] in version_spec, versions)
 
 open(ENV["GITHUB_OUTPUT"], "a") do f
     print(f, "juliaup_channels=")
-    print(f, join(Iterators.flatten(map(i->i.second, versions)), ", "))
+    print(f, join(Iterators.flatten(map(i->"\"$(i.second)\"", versions)), ", "))
     println()
 end
