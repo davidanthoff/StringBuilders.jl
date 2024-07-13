@@ -55,6 +55,3 @@ jobs:
 
         julia --project=./testrunner ./testrunner/main.jl ${{ runner.tool_cache }} @channels
       shell: pwsh
-    - name: Run CTRF annotations
-      run: npx github-actions-ctrf testresults.json
-      if: always()
