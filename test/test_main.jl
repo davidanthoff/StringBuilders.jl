@@ -36,7 +36,14 @@ end
     @test Foo.X == "SOME VAlue"
 end
 
-@testitem "TO" setup=[Foo,Bar] begin
-    error("HELLO")
+@testitem "Something" begin
+    println("Hello world")
+
+    error("WOA")
 end
 
+
+@testitem "Somdfasdfething" begin
+    
+    @test "asdf" == "asdf"
+end
