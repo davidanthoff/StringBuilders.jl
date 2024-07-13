@@ -7,7 +7,11 @@ end
     x = "Hello world"
 end
 
-@testitem "StringBuilders" df setup=[Foo,Bar] begin
+@testitem "With faulty syntax" df begin
+
+end
+
+@testitem "StringBuilders" setup=[Foo,Bar] begin
 
     @test x == "Hello world"
 
