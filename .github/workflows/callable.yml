@@ -24,13 +24,12 @@ jobs:
       run: julia ./versionlogic/versionlogic.jl
     - name: Install Julia versions
       run: |
-        $channels = "${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}"
-        $channels = $channels.Split(",", [System.StringSplitOptions]::TrimEntries)
+        $channels = "${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}".Split(",", [System.StringSplitOptions]::TrimEntries)
         $channels | % {juliaup add $_}        
       shell: pwsh
     - name: Clone registries
       run: |
-        $channels = "1.6", "1.10"
+        $channels = "${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}".Split(",", [System.StringSplitOptions]::TrimEntries)
 
         $channels | % {
           $Env:JULIA_DEPOT_PATH = "${{ runner.tool_cache }}/juliadepots/julia-$_"
@@ -40,7 +39,7 @@ jobs:
       shell: pwsh
     - name: Instantiate and precompile
       run: |
-        $channels = "1.6", "1.10"
+        $channels = "${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}".Split(",", [System.StringSplitOptions]::TrimEntries)
 
         $channels | % {
           $Env:JULIA_DEPOT_PATH = "${{ runner.tool_cache }}/juliadepots/julia-$_"
@@ -52,7 +51,7 @@ jobs:
       run: julia --project=./testrunner -e 'using Pkg; Pkg.instantiate()'
     - name: Run tests
       run: |
-        $channels = "1.6", "1.10"
+        $channels = "${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}".Split(",", [System.StringSplitOptions]::TrimEntries)
 
         julia --project=./testrunner ./testrunner/main.jl ${{ runner.tool_cache }} @channels
       shell: pwsh
