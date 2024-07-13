@@ -24,7 +24,8 @@ jobs:
       run: julia ./versionlogic/versionlogic.jl
     - name: Install Julia versions
       run: |
-        $channels = ${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}
+        $channels = "${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}"
+        $channel = $channel.Split(",")
         $channels | % {juliaup add $_}        
       shell: pwsh
     - name: Clone registries
