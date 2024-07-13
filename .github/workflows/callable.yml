@@ -15,13 +15,6 @@ jobs:
           os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Trust PSGallery
-      run: |
-        Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-      shell: pwsh
-    - uses: potatoqualitee/psmodulecache@v6.0
-      with:
-        modules-to-cache: PSToml
     - uses: actions/checkout@v4
     - name: Compute channels from Project.toml bounds
       run: |
@@ -34,9 +27,12 @@ jobs:
     - uses: julia-actions/install-juliaup@v2
       with:
         channel: "release"
+    - name: Compute channels from Project.toml bounds
+      id: compute_juliaup_channels
+      run: julia ./versionlogic/versionlogic.jl
     - name: Install Julia versions
       run: |
-        $channels = "1.6", "1.10"
+        $channels = ${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}
         $channels | % {juliaup add $_}        
       shell: pwsh
     - name: Clone registries

@@ -25,25 +25,6 @@ for result in results
     end
 end
 
-ctrf = Dict(
-    "results" => Dict(
-        "tool" => Dict("name"=>"Testitems"),
-        "summary" => Dict(
-            "tests" => 10,
-            "passed" => 3,
-            "failed" => 2,
-            "pending" => 0,
-            "skipped" => 0,
-            "other" => 0,
-            "start" => 0,
-            "stop" => 1            
-        ),
-        "tests" => [
-
-        ]
-    )
-)
-
 open(ENV["GITHUB_STEP_SUMMARY"], "w") do f
     println(f, "# Test summary from David")
 end
