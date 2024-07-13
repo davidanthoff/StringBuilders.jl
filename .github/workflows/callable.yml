@@ -16,14 +16,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
-    - name: Compute channels from Project.toml bounds
-      run: |
-        $project = Get-Content Project.toml | ConvertFrom-Toml
-
-        $minJulia = $project.compat.julia
-
-        echo "Min Julia is $minJulia"
-      shell: pwsh
     - uses: julia-actions/install-juliaup@v2
       with:
         channel: "release"
