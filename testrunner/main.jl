@@ -34,6 +34,12 @@ for result in results.test_results
     end
 end
 
+println()
+println("NOW SHOWING SOME PROC DIAG")
+println()
+println()
+print_process_diag()
+
 open(ENV["GITHUB_STEP_SUMMARY"], "w") do f
     println(f, "# Test summary from David")
 end
