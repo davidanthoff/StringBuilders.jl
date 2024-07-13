@@ -68,8 +68,7 @@ jobs:
         flags: unittests
         token: ${{ secrets.codecov_token }}
 
-  docs:
-    name: Deploy Documentation
+  doc-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
