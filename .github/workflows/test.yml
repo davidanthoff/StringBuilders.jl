@@ -12,3 +12,5 @@ on:
 jobs:
   julia-ci:
     uses: ./.github/workflows/callable.yml
+    secrets:
+      codecov_token: ${{ secrets.CODECOV_TOKEN }}

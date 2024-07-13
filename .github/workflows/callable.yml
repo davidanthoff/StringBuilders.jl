@@ -2,6 +2,9 @@ name: Reusable workflow example
 
 on:
   workflow_call:
+    secrets:
+      codecov_token:
+        required: true
 
 jobs:
   lint:
@@ -63,4 +66,4 @@ jobs:
       with:
         files: ./lcov.info
         flags: unittests
-        token: ${{ secrets.CODECOV_TOKEN }}
+        token: ${{ secrets.codecov_token }}
