@@ -57,7 +57,9 @@ jobs:
         julia --project=./testrunner ./testrunner/main.jl ${{ runner.tool_cache }} @channels
       shell: pwsh
     - uses: julia-actions/julia-processcoverage@v1
+      if: always()
     - uses: codecov/codecov-action@v4
+      if: always()
       with:
         files: ./lcov.info
         flags: unittests
