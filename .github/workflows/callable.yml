@@ -25,7 +25,7 @@ jobs:
     - name: Install Julia versions
       run: |
         $channels = "${{ steps.compute_juliaup_channels.outputs.juliaup_channels }}"
-        $channel = $channel.Split(",")
+        $channels = $channels.Split(",")
         $channels | % {juliaup add $_}        
       shell: pwsh
     - name: Clone registries
