@@ -12,5 +12,7 @@ on:
 jobs:
   julia-ci:
     uses: julia-vscode/testitem-workflow/.github/workflows/testitemci.yml@main
+    with:
+      include-rc-versions: true
     secrets:
       codecov_token: ${{ secrets.CODECOV_TOKEN }}
