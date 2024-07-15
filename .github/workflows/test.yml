@@ -13,6 +13,6 @@ jobs:
   julia-ci:
     uses: julia-vscode/testitem-workflow/.github/workflows/testitemci.yml@main
     with:
-      include-smallest-compatible-minor-versions: false
+      include-smallest-compatible-minor-versions: true
     secrets:
       codecov_token: ${{ secrets.CODECOV_TOKEN }}
