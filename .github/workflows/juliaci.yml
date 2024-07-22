@@ -4,7 +4,7 @@ on:
   push: {branches: [main,master]}
   pull_request: {types: [opened,synchronize,reopened]}
   issue_comment: {types: [created]}
-  schedule: [{cron: '* * * * *'}]
+  schedule: [{cron: '*/5 * * * *'}]
   workflow_dispatch:
 
 jobs:
