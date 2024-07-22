@@ -12,6 +12,8 @@ on:
         description: What to run
         options: 
         - CompatHelper
+        - DocDeploy
+        - LintAndTest
         - TagBot
 
 permissions: write-all
