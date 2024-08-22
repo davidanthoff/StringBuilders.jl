@@ -9,7 +9,7 @@ on:
 
 jobs:
   julia-ci:
-    uses: julia-vscode/testitem-workflow/.github/workflows/juliaci.yml@main
+    uses: julia-vscode/testitem-workflow/.github/workflows/juliaci.yml@v1
     permissions: write-all
     secrets:
       codecov_token: ${{ secrets.CODECOV_TOKEN }}
