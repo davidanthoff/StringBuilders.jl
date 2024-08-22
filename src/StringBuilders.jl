@@ -23,6 +23,7 @@ end
 function Base.append!(sb::StringBuilder, s::AbstractString)
     if sb.as_string !== nothing
         print(sb.buffer, sb.as_string)
+        print(sb.buffer, sb.as_string)
         sb.as_string = nothing
     end
     print(sb.buffer, s)
