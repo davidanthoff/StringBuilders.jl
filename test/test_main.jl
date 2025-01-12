@@ -22,3 +22,16 @@
     sb = StringBuilder()
     @test isempty(String(sb))
 end
+
+@testitem "failure testitem" begin
+    a = "Hello"
+    @test a == "Foo"
+end
+
+@testitem "error testitem" begin
+    error("This is a real error")
+end
+
+@testitem "error in test" begin
+    @test error("Error inside test")
+end
