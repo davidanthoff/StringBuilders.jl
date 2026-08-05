@@ -1,3 +1,3 @@
 var documenterSearchIndex = {"docs":
-[{"location":"#StringBuilders.jl","page":"Home","title":"StringBuilders.jl","text":"TODO: Write documentation","category":"section"}]
+[{"category":"section","location":"#StringBuilders.jl","page":"Home","text":"TODO: Write documentation","title":"StringBuilders.jl"}]
 }
