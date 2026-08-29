@@ -8,7 +8,7 @@ on:
 
 jobs:
   julia-ci:
-    uses: julia-testitems/testitem-workflow/.github/workflows/juliaci.yml@v2
+    uses: julia-testitems/testitem-workflow/.github/workflows/juliaci.yml@main
     permissions: write-all
     secrets:
       codecov_token: ${{ secrets.CODECOV_TOKEN }}
