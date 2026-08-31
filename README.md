@@ -27,3 +27,5 @@ write(io, "Second String")
 s = String(take!(io))
 close(io)
 ```
+
+NB: Julia `Base` provides a higher-level interface around `IOBuffer`, too: [`sprint`](https://docs.julialang.org/en/v1/base/io-network/#Base.sprint). It is of the functional programming flavor.
