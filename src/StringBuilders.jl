@@ -129,6 +129,7 @@ end
 function Base.append!(sb::StringBuilder, ss::AbstractString...)
     for s in ss
         append!(sb, s)
+        println("Hello world")
     end
 end
 
